@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Macro Keys</title>
+<style type="text/css">
+body
+{
+    margin: 4px;
+    font-size: 10pt;
+    font-family: sans-serif;
+}
+
+table
+{
+    font-size: 10pt;
+    font-family: sans-serif;
+}
+
+span
+{
+    font-family: monospace;
+}
+
+h1
+{
+    font-size: 14pt;
+    margin: 0;
+    border-bottom: 1px solid darkgray;
+}
+
+h2
+{
+    font-size: 10pt;
+    margin: 0 10pt 0 10pt;
+    border-bottom: 1px solid darkgray;
+}
+
+ul
+{
+    list-style-type: square;
+    margin: 0 0 0 1em;
+    padding: 0;
+}
+</style>
+</head>
+<body>
+<h1>Macro Definitions</h1>
+<p>Each key is represented by one or more characters. To specify a single keyboard character, use the character itself. For example, to represent the letter A, use "<span>A</span>" for the string. To represent more than one character, append each additional character to the one preceding it. To represent the letters A, B, and C, use "<span>ABC</span>" for string.</p>
+
+<p>The plus sign (+), caret (^), percent sign (%), tilde (~), and parentheses have special meanings. To specify one of these characters, enclose it within braces ({}). For example, to specify the plus sign, use <span>{+}</span>. To specify brace characters, use <span>{{}</span> and <span>{}}</span>.</p>
+
+<h2>Special Codes</h2>
+<ul>
+<li><span>ACTIVEAPP</span><br />
+    Repositions the active window.
+    <table>
+        <tr><td><span>LEFT</span></td><td>Repositions the window the left half of the screen.</td></tr>
+        <tr><td><span>MAX</span></td><td>Maximizes the window.</td></tr>
+        <tr><td><span>MIN</span></td><td>Minimizes the window, or restores it if maximized.</td></tr>
+        <tr><td><span>MINOTHER</span></td><td>Minimizes all other windows.</td></tr>
+        <tr><td><span>MONDOWN</span></td><td>Moves the window over a monitor.</td></tr>
+        <tr><td><span>MONLEFT</span></td><td>Moves the window over a monitor.</td></tr>
+        <tr><td><span>MONRIGHT</span></td><td>Moves the window over a monitor.</td></tr>
+        <tr><td><span>MONUP</span></td><td>Moves the window over a monitor.</td></tr>
+        <tr><td><span>RIGHT</span></td><td>Repositions the window the right half of the screen.</td></tr>
+        <tr><td><span>STRETCH</span></td><td>Stretches the window to the top and bottom.</td></tr>
+    </table></li>
+
+<li><span>ADDVAR &lt;value&gt;</span><br />
+    Add value to the current variable.  See <span>SETVAR</span> and <span>TYPEVAR</span>.</li>
+
+<li><span>BEGIN</span><br />
+    Start point for a <span>LOOP</span> command.</li>
+
+<li><span>BOARD</span><br />
+    Types the contents of the clipboard (without being parsed).  This differs from pasting because the keystrokes for each letter of the text in the keyboard are simulated, and any formatting contained in the clipboard is lost.</li>
+    
+<li><span>CD &lt;code&gt;</span><br />
+    Controls various aspects of the CD-ROM drive.
+    <table>
+        <tr><td><span>CLOSE</span></td><td>Closes the tray of the CD drive.</td></tr>
+        <tr><td><span>OPEN</span></td><td>Opens the tray of the CD drive.</td></tr>
+    </table></li>
+
+<li><span>HIBERNATE</span><br />
+    Causes the system to enter hibernation mode.</li>
+
+<li><span>LAUNCH &lt;application&gt;</span><br />
+    This launches a windows application. For instance: "<span>{LAUNCH notepad.exe}</span>" will start notepad.</li>
+
+<li><span>LOOP &lt;count&gt;</span><br />
+    Run a loop, starting over at the previous <span>BEGIN</span> command.</li>
+
+<li><span>PASTESCRUB</span><br />
+    Pastes a scrubbed version of the clipboard.  This removes any formatting or other non-text elements from the clipboard and pastes the results using Control-V</li>
+
+<li><span>ROTATEDISPLAY &lt;degrees&gt;</span><br />
+    Rotate the display ninety degrees, or specify one of "<span>0d</span>", "<span>90d</span>", "<span>180d</span>", or "<span>270d</span>" to rotate to a specific orientation.</li>
+
+<li><span>SETVAR &lt;value&gt;</span><br />
+    Set a variable to the value specified.  See <span>ADDVAR</span> and <span>TYPEVAR</span>.</li>
+
+<li><span>SLEEP &lt;milliseconds&gt;</span><br />
+    Sleeps for the specified time.  For instance: "<span>{SLEEP 1000}</span>" will cause the app to sleep for one second.</li>
+
+<li><span>SUSPEND</span><br />
+    Causes the system to enter suspend mode.</li>
+
+<li><span>SWITCHTO &lt;window name&gt;</span><br />
+    Switches to the first window with the matching string found in its window title.  For instance: "<span>{SWITCHTO notepad}</span>" will bring the first instance of notepad to the foreground.</li>
+
+<li><span>SYSCOMMAND &lt;code&gt;</span><br />
+    Sends various windows system commands to the active window.
+    <table>
+        <tr><td><span>CLOSE</span></td><td>Close the active window.</td></tr>
+        <tr><td><span>HSCROLL</span></td><td>Scroll horizontally.</td></tr>
+        <tr><td><span>MAXIMIZE</span></td><td>Maximize the active window.</td></tr>
+        <tr><td><span>MINIMIZE</span></td><td>Minimize the active window.</td></tr>
+        <tr><td><span>MOVE</span></td><td>Move the active window.</td></tr>
+        <tr><td><span>NEXTWINDOW</span></td><td>Move to the next window.</td></tr>
+        <tr><td><span>PREVWINDOW</span></td><td>Move to the previous window.</td></tr>
+        <tr><td><span>RESTORE</span></td><td>Restore window to normal position and size.</td></tr>
+        <tr><td><span>SCREENSAVE</span></td><td>Executes the screen-saver.</td></tr>
+        <tr><td><span>SIZE</span></td><td>Size the active window.</td></tr>
+        <tr><td><span>TASKLIST</span></td><td>Activate the Windows Task Manager.</td></tr>
+        <tr><td><span>VSCROLL</span></td><td>Scroll vertically.</td></tr>
+    </table></li>
+
+<li><span>TYPEVAR</span><br />
+    Types the current variable as text.  See <span>ADDVAR</span> and <span>SETVAR</span>.</li>
+
+<!--
+<li><span>VLC &lt;port#&gt;,&lt;command&gt;</span><br />
+    Sends various commands to a running instance of VLC on the
+    specified port number.
+    <table>
+        <tr><td><span>add selection</span></td><td>Add "selection" to playlist</td></tr>
+        <tr><td><span>enqueue selection</span></td><td>Queue "selection" to playlist</td></tr>
+        <tr><td><span>play</span></td><td>Play stream</td></tr>
+        <tr><td><span>stop</span></td><td>Stop stream</td></tr>
+        <tr><td><span>next</span></td><td>Next playlist item</td></tr>
+        <tr><td><span>prev</span></td><td>Previous playlist item</td></tr>
+        <tr><td><span>goto</span></td><td>Goto item at index</td></tr>
+        <tr><td><span>repeat on|off</span></td><td>Toggle playlist item repeat</td></tr>
+        <tr><td><span>loop on|off</span></td><td>Toggle playlist loop</td></tr>
+        <tr><td><span>random on|off</span></td><td>Toggle random jumping</td></tr>
+        <tr><td><span>clear</span></td><td>Clear the playlist</td></tr>
+        <tr><td><span>status</span></td><td>Current playlist status</td></tr>
+        <tr><td><span>seek secs</span></td><td>Seek in seconds</td></tr>
+        <tr><td><span>pause</span></td><td>Toggle pause</td></tr>
+        <tr><td><span>fastforward</span></td><td>Set to maximum rate</td></tr>
+        <tr><td><span>rewind</span></td><td>Set to minimum rate</td></tr>
+        <tr><td><span>faster</span></td><td>Faster playing of stream</td></tr>
+        <tr><td><span>slower</span></td><td>Slower playing of stream</td></tr>
+        <tr><td><span>normal</span></td><td>Normal playing of stream</td></tr>
+        <tr><td><span>f on|off</span></td><td>Toggle fullscreen</td></tr>
+        <tr><td><span>volume val</span></td><td>Set audio volume</td></tr>
+        <tr><td><span>volup val</span></td><td>Raise audio volume</td></tr>
+        <tr><td><span>voldown val</span></td><td>Lower audio volume</td></tr>
+        <tr><td><span>quit</span></td><td>Quit VLC</td></tr>
+    </table></li>
+-->
+</ul>
+
+<p />
+
+<h2>Special Keys</h2>
+
+<p>To specify characters that aren't displayed when you press a key, such as ENTER or TAB, and keys that represent actions rather than characters, use the codes shown below:</p>
+
+<table>
+    <tr><td><i>Key</i></td><td><i>Code</i></td></tr>
+    <tr><td colspan="2"><hr /></td></tr>
+    
+    <tr><td>Alt down</td><td><span>{ALTDOWN}</span></td></tr>
+    <tr><td>Alt up</td><td><span>{ALTUP}</span></td></tr>
+    <tr><td>Backspace</td><td><span>{BACKSPACE}</span>, <span>{BS}</span>, or <span>{BKSP}</span></td></tr>
+    <tr><td>Break</td><td><span>{BREAK}</span></td></tr>
+    <tr><td>Caps Lock</td><td><span>{CAPSLOCK}</span></td></tr>
+    <tr><td>Control down</td><td><span>{CTRLDOWN}</span></td></tr>
+    <tr><td>Control up</td><td><span>{CTRLUP}</span></td></tr>
+    <tr><td>Delete</td><td><span>{DELETE}</span> or <span>{DEL}</span></td></tr>
+    <tr><td>Down arrow</td><td><span>{DOWN}</span></td></tr>
+    <tr><td>End</td><td><span>{END}</span></td></tr>
+    <tr><td>Enter</td><td><span>{ENTER}</span> or <span>~</span></td></tr>
+    <tr><td>Escape</td><td><span>{ESC}</span></td></tr>
+    <tr><td>F1</td><td><span></span>{F1}</td></tr>
+    <tr><td>...</td><td></td></tr>
+    <tr><td>F16</td><td><span>{F16}</span></td></tr>
+    <tr><td>Help</td><td><span>{HELP}</span></td></tr>
+    <tr><td>Home</td><td><span>{HOME}</span></td></tr>
+    <tr><td>Insert</td><td><span>{INSERT}</span> or <span>{INS}</span></td></tr>
+    <tr><td>Left arrow</td><td><span>{LEFT}</span></td></tr>
+    <tr><td>Num Lock</td><td><span>{NUMLOCK}</span></td></tr>
+    <tr><td>Page Down</td><td><span>{PGDN}</span></td></tr>
+    <tr><td>Page Up</td><td><span>{PGUP}</span></td></tr>
+    <tr><td>Right arrow</td><td><span>{RIGHT}</span></td></tr>
+    <tr><td>Scroll Lock</td><td><span>{SCROLLLOCK}</span></td></tr>
+    <tr><td>Shift down</td><td><span>{SHIFTDOWN}</span></td></tr>
+    <tr><td>Shift up</td><td><span>{CTRLUP}</span></td></tr>
+    <tr><td>Tab</td><td><span>{TAB}</span></td></tr>
+    <tr><td>Up arrow</td><td><span>{UP}</span></td></tr>
+</table>
+
+<p />
+
+<h2>Mouse Codes</h2>
+<table>
+    <tr><td>Left button down</td><td><span>{LDOWN}</span></td></tr>
+    <tr><td>Left button up</td><td><span>{LUP}</span></td></tr>
+    <tr><td>Left click</td><td><span>{LCLICK}</span> or <span>{CLICK}</span></td></tr>
+    <tr><td>Move Cursor</td><td><span>{MOVECURSOR x,y}</span></td></tr>
+    <tr><td>Offset Cursor</td><td><span>{OFFSETCURSOR x,y}</span></td></tr>
+    <tr><td>Restore Cursor Pos</td><td><span>{RESTORECURSOR}</span></td></tr>
+    <tr><td>Right button down</td><td><span>{RDOWN}</span></td></tr>
+    <tr><td>Right button up</td><td><span>{RUP}</span></td></tr>
+    <tr><td>Right click</td><td><span>{RCLICK}</span></td></tr>
+    <tr><td>Store Cursor Pos</td><td><span>{STORECURSOR}</span></td></tr>
+</table>
+
+<p />
+
+<p>Offset Cursor moves the cursor relative to the current mouse position.  Move Cursor moves it to a set position.</p>
+
+<p />
+
+<h2>Key Modifiers</h2>
+<p>To specify keys combined with any combination of the shift, control, and alt keys, precede the key code with one or more of the following codes:</p>
+
+<table>
+    <tr><td><i>Key</i></td><td><i>Code</i></td></tr>
+    <tr><td colspan="2"><hr /></td></tr>
+    
+    <tr><td>Alt</td><td><span>%</span></td></tr>
+    <tr><td>Control</td><td><span>^</span></td></tr>
+    <tr><td>Shift</td><td><span>+</span></td></tr>
+</table>
+
+<p>To specify that any combination of shift, control, and alt should be held down while several other keys are pressed, enclose the code for those keys in parentheses. For example, to specify to hold down shift while E and C are pressed, use "<span>+(EC)</span>". To specify to hold down shift while E is pressed, followed by C without shift, use "<span>+EC</span>".</p>
+
+<p>To specify repeating keys, use the form {key &lt;number&gt;}. For example, <span>{LEFT &lt;42&gt;}</span> means press the left arrow key 42 times; <span>{h &lt;10&gt;}</span> means press the letter H 10 times.</p>
+
+</body>
+</html>
